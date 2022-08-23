@@ -1,19 +1,19 @@
 [Project]
-FileName=keepa
-Name=Project2
+FileName=keepa.dev
+Name=keepa
 Type=1
 Ver=2
 ObjFiles=
 Includes=
 Libs=
-PrivateResource=
+PrivateResource=keepa_private.rc
 ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=
 Linker=
 IsCpp=1
-Icon=
+Icon=keepa.ico
 ExeOutput=
 ObjectOutput=
 LogOutput=
@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=..\..\Documents\main.cpp
+FileName=main.cpp
 CompileCpp=1
 Folder=
 Compile=1
