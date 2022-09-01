@@ -6,6 +6,8 @@
 #include <sstream>
 #include <string>
 #include <string.h>
+#include <ctime>
+#include <Windows.h>
 #include <fstream>
 #define TOY "DB/BDjuguetes.csv"
 #define MEDICINE "DB/MEDICAMENTOS.csv"
@@ -187,8 +189,6 @@ int main(int argc, char** argv) {
 	        cout << "Price: " << price << endl;
 	    }
 	}else if(fname=="car"){
-		
-		cout << "I'm car";
 		ifstream file (CAR);
 	    string line;
 	    char lim = ',';
@@ -197,6 +197,8 @@ int main(int argc, char** argv) {
 	    cout<<"Cargando";
 	    while (getline(file,line))
 	    {
+	    	int yearInt;
+	    	float priceFloat;
 	    	stringstream stream(line); // Convertir la cadena a un stream
 	        string name, price, body, year,model;
 	        // Extraer todos los valores de esa fila
@@ -205,21 +207,15 @@ int main(int argc, char** argv) {
 	        getline(stream, body, lim);
 	        getline(stream, year, lim);
 	        getline(stream, model, lim);
-	        car[count]=Car(count,name, 50, body, 1995, model);
+	        std::istringstream(year) >> yearInt;
+	        std::istringstream(price) >> priceFloat;
+	        car[count]=Car(count,name, priceFloat, body, yearInt, model);
 	        
 	        // Imprimir
-	        cout << "=";
+	        Sleep(50);
+	        cout << ".";
 	        count++;
 	    }
-	    cout<<count;
 	}
-	for(int i=0;i<=49;i++){
-		cout<<car[i].GetProduct()<<endl;
-	}
-	cout<< fname;
-	 
 	
-	
-	std::cout << "Hello world!\n";
-
 }
