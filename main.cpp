@@ -106,6 +106,48 @@
             return PriceProduct;
             } 
 };
+class Medicine{
+    private:
+        string name;
+        string substance;
+        float cost;
+        int id;
+
+    public:
+        Medicine(string _name, int _id, string _substance, float _cost){
+            id = _id;
+            cost = _cost;
+            name = _name;
+            substance = _substance;
+            }  
+            Medicine(){}
+        void Setcost(float _cost){
+                  cost = _cost;
+            }
+              
+        string GetMedicine(){
+        	stringstream stream;
+ 			
+ 			stream << id;
+ 			string idStr;
+ 			stream >> idStr;
+ 			
+            string InfoMedicine =
+            "Name: "+name+"\n"+"id: "+idStr+"\n"+
+            "Sustancia: "+substance;
+            return InfoMedicine;
+            }
+            
+        string Getcost(){
+        	stringstream stream;
+        	stream << cost;
+ 			string costStr;
+ 			stream >> costStr;
+            string CostMedicine = 
+            "Costo: $"+costStr+"\n";
+            return CostMedicine;
+            } 
+};
  
 
 int main(int argc, char** argv) {
@@ -170,23 +212,29 @@ int main(int argc, char** argv) {
 		ifstream file (MEDICINE);
 	    string line;
 	    char lim = ',';
+	    int count=0;
+	    Medicine* medicine = new  Medicine[50];
 	    getline(file, line);
 	    while (getline(file,line))
 	    {
 	    	stringstream stream(line); // Convertir la cadena a un stream
-	        string name, id, manufacturer, price;
+	        string Nombre,Id,Sustancia,costo;
+	        int idt;
+	        float cos;
 	        // Extraer todos los valores de esa fila
-	        getline(stream, name, lim);
-	        getline(stream, id, lim);
-	        getline(stream, manufacturer, lim);
-	        getline(stream, price, lim);
-	        
+	        getline(stream, Nombre, lim);
+	        getline(stream, Id, lim);
+	        getline(stream, Sustancia, lim);
+	        getline(stream, costo, lim);
+	        std::istringstream(Id) >> idt; 
+	        std::istringstream(costo) >> cos;
+		    medicine [count] = Medicine(Nombre, idt, Sustancia, cos);
+      		count++;    
+      		
 	        // Imprimir
-	        cout << "==================" << endl;
-	        cout << "Name: " << name << endl;
-	        cout << "id: " << id << endl;
-	        cout << "Manufacturer: " << manufacturer << endl;
-	        cout << "Price: " << price << endl;
+	        Sleep(50);
+	        cout << ".";
+	        count++;
 	    }
 	}else if(fname=="car"){
 		ifstream file (CAR);
