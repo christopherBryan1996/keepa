@@ -185,12 +185,18 @@ int main(int argc, char** argv) {
 	
 	if(fname=="toy"){
 		cout << "I'm toy";
+		int it=0;
 		ifstream file (TOY);
 	    string line;
 	    char lim = ',';
+	    Art_toy *articles = new Art_toy[50];
 	    getline(file, line);
+	    cout<<"Cargando";
 	    while (getline(file,line))
 	    {
+	    	
+	    	int idStr;
+            float priceStr;
 	    	stringstream stream(line); // Convertir la cadena a un stream
 	        string name, id, manufacturer, price;
 	        // Extraer todos los valores de esa fila
@@ -198,23 +204,24 @@ int main(int argc, char** argv) {
 	        getline(stream, id, lim);
 	        getline(stream, manufacturer, lim);
 	        getline(stream, price, lim);
+	        std::istringstream(id)>>idStr;
+            std::istringstream(price)>>priceStr;
 	        
 	        // Imprimir
-	        cout << "==================" << endl;
-	        cout << "Name: " << name << endl;
-	        cout << "id: " << id << endl;
-	        cout << "Manufacturer: " << manufacturer << endl;
-	        cout << "Price: " << price << endl;
+	        articles[it]=Art_toy(name,idStr,manufacturer,priceStr);
+            it++;
+            Sleep(50);
+	        cout << ".";
 	    }
 	}
 	else if(fname=="medicine"){
-		cout << "I'm medicine";
 		ifstream file (MEDICINE);
 	    string line;
 	    char lim = ',';
 	    int count=0;
 	    Medicine* medicine = new  Medicine[50];
 	    getline(file, line);
+	    cout<<"Cargando";
 	    while (getline(file,line))
 	    {
 	    	stringstream stream(line); // Convertir la cadena a un stream
@@ -229,7 +236,6 @@ int main(int argc, char** argv) {
 	        std::istringstream(Id) >> idt; 
 	        std::istringstream(costo) >> cos;
 		    medicine [count] = Medicine(Nombre, idt, Sustancia, cos);
-      		count++;    
       		
 	        // Imprimir
 	        Sleep(50);
