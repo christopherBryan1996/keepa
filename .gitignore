@@ -1,1 +1,12 @@
 main.exe
+
+keepa_private.h
+keepa_private.rc
+keepa_private.res
+keepa.dev
+keepa.exe
+keepa.ico
+keepa.layout
+keepa.pp
+main.o
+Makefile.win

@@ -13,6 +13,7 @@
 #define MEDICINE "DB/MEDICAMENTOS.csv"
 #define CAR "DB/car_ad.csv"
 
+
  using namespace std;
  class Car{
  	private:
@@ -51,7 +52,7 @@
  			stream3 >> yearStr;
  			
  			
- 			return "Id: "+idStr+" Nombre: "+name+" Precio: "+priceStr+" Tipo: "+ body+ " Año: "+yearStr+" Modelo:"+model;
+ 			return "Id: "+idStr+" Nombre: "+name+" Precio: "+priceStr+" Tipo: "+ body+ " Ano: "+yearStr+" Modelo:"+model;
 		}
 		
 		void SetPrice(float newPrece){
@@ -59,6 +60,12 @@
 		}
 		int GetPrice(){
 			return price;
+		}
+		int GetId(){
+			return id;
+		}
+		string GetName(){
+			return name;
 		}
  };
  
@@ -147,14 +154,32 @@ class Medicine{
             "Costo: $"+costStr+"\n";
             return CostMedicine;
             } 
+        int GetId(){
+			return id;
+		}
+		string GetName(){
+			return name;
+		}
 };
  
+float changePrice(float price){
+	int percentage=price*.10;
+	int max=price+percentage;
+	int min=price-percentage;
+	return min+rand() % (max-min);
+	
+}
 
 int main(int argc, char** argv) {
 	string fname;
 	int op;
 	cout <<"Bienvenido a Keepa en c++ \n";
+	
+	Art_toy *articles = new Art_toy[50];
 	Car* car= new Car[49];
+	Medicine* medicine = new  Medicine[50];
+	
+	int addId[3];
 	
 	while(true){
 		cout <<"Tenemos un listado:\n 1 Jugetes\n 2 Medicamento\n 3 Carros\n";
@@ -184,12 +209,10 @@ int main(int argc, char** argv) {
 	}
 	
 	if(fname=="toy"){
-		cout << "I'm toy";
 		int it=0;
 		ifstream file (TOY);
 	    string line;
 	    char lim = ',';
-	    Art_toy *articles = new Art_toy[50];
 	    getline(file, line);
 	    cout<<"Cargando";
 	    while (getline(file,line))
@@ -219,7 +242,6 @@ int main(int argc, char** argv) {
 	    string line;
 	    char lim = ',';
 	    int count=0;
-	    Medicine* medicine = new  Medicine[50];
 	    getline(file, line);
 	    cout<<"Cargando";
 	    while (getline(file,line))
@@ -230,12 +252,10 @@ int main(int argc, char** argv) {
 	        float cos;
 	        // Extraer todos los valores de esa fila
 	        getline(stream, Nombre, lim);
-	        getline(stream, Id, lim);
 	        getline(stream, Sustancia, lim);
 	        getline(stream, costo, lim);
-	        std::istringstream(Id) >> idt; 
 	        std::istringstream(costo) >> cos;
-		    medicine [count] = Medicine(Nombre, idt, Sustancia, cos);
+		    medicine [count] = Medicine(Nombre, count, Sustancia, cos);
       		
 	        // Imprimir
 	        Sleep(50);
@@ -270,6 +290,165 @@ int main(int argc, char** argv) {
 	        cout << ".";
 	        count++;
 	    }
+	}
+	
+	cout<<"\n";
+	int statusGlobal=true;
+	while (statusGlobal){
+		int op2;
+        cout<<"\nConoce nuestros productos o desea ver una lista?"<<endl;
+        cout<<"[1] Conozco los productos"<<endl;
+        cout<<"[2] Deseo ver las listas"<<endl;
+        cout<<"Selección: ";
+        cin>>op2;
+            if(cin.fail()){
+			cout <<"Solo numeros enteros, reinicie el programa \n";
+			break;
+		    }
+		bool status=true;
+        switch (op2)
+        {
+        case 1:
+            while(status){
+            	int op3;
+	            cout<<"Como desea realizar su busqueda?"<<endl;
+	            cout<<"[1] Búsqueda por ID"<<endl;
+	            cout<<"[2] Búsqueda por nombre"<<endl;
+	            cout<<"Selección: ";
+	            cin>>op3;
+				int addSum=0;
+	            if(cin.fail()){
+					cout <<"Solo numeros enteros, reinicie el programa \n";
+					break;
+				}
+				switch(op3){
+					case 1:
+						while(addSum<3){
+							int idCout;
+							cout << "Ingrese su id por favor: ";
+							cin >> idCout;
+							if(fname=="toy"){
+				            
+				            }
+				            else if(fname=="medicine"){
+				            	for(int i=0;i<50;i++){
+				            		if(medicine[i].GetId()==idCout){
+				            			char opSoN;
+				            			cout <<"Tu producto es: \n";
+				            			cout << medicine[i].GetMedicine()<<endl;
+				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cin >> opSoN;
+				            			if(opSoN=='s' or opSoN=='S'){
+				            				addId[addSum]=idCout;
+				            				cout << "Se agrego con exito \n";
+				            				addSum++;
+										}
+									}
+								}
+				            }
+				            else if(fname=="car"){
+				            	for(int i=0;i<50;i++){
+				            		if(car[i].GetId()==idCout){
+				            			char opSoN;
+				            			cout <<"Tu producto es: \n";
+				            			cout << car[i].GetProduct()<<endl;
+				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cin >> opSoN;
+				            			if(opSoN=='s' or opSoN=='S'){
+				            				addId[addSum]=idCout;
+				            				cout << "Se agrego con exito \n";
+				            				addSum++;
+										}
+									}
+								}
+							}
+						}
+						cout << "Tus productos a moritoriar son: \n";
+						for(int i=0;i<3;i++){
+							cout << medicine[addId[i]].GetMedicine();
+						}
+						status=false;
+						statusGlobal=false;
+					break;
+					case 2:
+						while(addSum<3){
+							string idCout;
+							cout << "Ingrese su id por favor: ";
+							cin >> idCout;
+							if(fname=="toy"){
+				            
+				            }
+				            else if(fname=="medicine"){
+				            	for(int i=0;i<50;i++){
+				            		if(medicine[i].GetName()==idCout){
+				            			char opSoN;
+				            			cout <<"Tu producto es: \n";
+				            			cout << medicine[i].GetMedicine()<<endl;
+				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cin >> opSoN;
+				            			if(opSoN=='s' or opSoN=='S'){
+				            				addId[addSum]=i;
+				            				cout << "Se agrego con exito \n";
+				            				addSum++;
+										}
+									}
+								}
+				            }
+				            else if(fname=="car"){
+				            	for(int i=0;i<50;i++){
+				            		if(car[i].GetName()==idCout){
+				            			char opSoN;
+				            			cout <<"Tu producto es: \n";
+				            			cout << car[i].GetProduct()<<endl;
+				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cin >> opSoN;
+				            			if(opSoN=='s' or opSoN=='S'){
+				            				addId[addSum]=i;
+				            				cout << "Se agrego con exito \n";
+				            				addSum++;
+										}
+									}
+								}
+							}
+						}
+						cout << "Tus productos a moritoriar son: \n";
+						for(int i=0;i<3;i++){
+							cout << medicine[addId[i]].GetMedicine();
+						}
+						status=false;
+						statusGlobal=false;
+					break;
+				}
+			}
+            
+            
+            break;
+        case 2:
+            int op4;
+            if(fname=="toy"){
+            for (int i = 0; i < 50; i++)
+            {
+                cout<<"["<<i+1<<"]\n"<<articles[i].GetProduct()<<endl;
+                cout<<"Para el siguiente articulo"<<endl;
+                op4 = cin.get();
+               
+            }
+            
+            }
+            else if(fname=="medicine"){
+
+            }
+            else if(fname=="car"){
+
+            }
+            else{
+
+            }
+            break;
+        default:
+        	cout<<"Digite solo del 1 al 2 por favor\n";
+            break;
+        }
 	}
 	
 }
