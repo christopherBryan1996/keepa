@@ -15,6 +15,7 @@
 
 
  using namespace std;
+ //creacion de objetos 
  class Car{
  	private:
  		int id;
@@ -161,7 +162,7 @@ class Medicine{
 			return name;
 		}
 };
- 
+ //fincion para cambiar de precio solo un 10% a su alsa o asu baja
 float changePrice(float price){
 	int percentage=price*.10;
 	int max=price+percentage;
@@ -180,7 +181,8 @@ int main(int argc, char** argv) {
 	Medicine* medicine = new  Medicine[50];
 	
 	int addId[3];
-	
+	int addSum=0;
+	//inicio para dar la opcion a escojer que base de datos le interesa 
 	while(true){
 		cout <<"Tenemos un listado:\n 1 Jugetes\n 2 Medicamento\n 3 Carros\n";
 		cout <<"Digite el numero de su listado favorito: \n";
@@ -207,7 +209,7 @@ int main(int argc, char** argv) {
 			break;
 		}
 	}
-	
+	//llenado de los objetos de la base de datos seleccionada 
 	if(fname=="toy"){
 		int it=0;
 		ifstream file (TOY);
@@ -291,7 +293,7 @@ int main(int argc, char** argv) {
 	        count++;
 	    }
 	}
-	
+	//seleccionar los articulos a moritoriar solo se podran escojer 3 
 	cout<<"\n";
 	int statusGlobal=true;
 	while (statusGlobal){
@@ -311,22 +313,30 @@ int main(int argc, char** argv) {
         case 1:
             while(status){
             	int op3;
+            	bool statusTwo=true;
 	            cout<<"Como desea realizar su busqueda?"<<endl;
 	            cout<<"[1] Búsqueda por ID"<<endl;
 	            cout<<"[2] Búsqueda por nombre"<<endl;
 	            cout<<"Selección: ";
 	            cin>>op3;
-				int addSum=0;
+				
 	            if(cin.fail()){
 					cout <<"Solo numeros enteros, reinicie el programa \n";
+					statusGlobal=false;
 					break;
 				}
 				switch(op3){
 					case 1:
-						while(addSum<3){
+						while(addSum<3 and statusTwo){
 							int idCout;
 							cout << "Ingrese su id por favor: ";
 							cin >> idCout;
+							if(cin.fail()){
+								cout <<"Solo numeros enteros, reinicie el programa \n";
+								status=false;
+								statusGlobal=false;
+								break;
+							}
 							if(fname=="toy"){
 				            
 				            }
@@ -334,14 +344,22 @@ int main(int argc, char** argv) {
 				            	for(int i=0;i<50;i++){
 				            		if(medicine[i].GetId()==idCout){
 				            			char opSoN;
+				            			
 				            			cout <<"Tu producto es: \n";
 				            			cout << medicine[i].GetMedicine()<<endl;
 				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cout << "Si desea salir precione 'c' y si no tiene ninguno agregado se acabara el programa" << endl;
 				            			cin >> opSoN;
 				            			if(opSoN=='s' or opSoN=='S'){
 				            				addId[addSum]=idCout;
 				            				cout << "Se agrego con exito \n";
 				            				addSum++;
+										}
+										if(opSoN=='c' or opSoN=='C'){
+											status=false;
+											statusGlobal=false;
+											statusTwo=false;
+											break;
 										}
 									}
 								}
@@ -353,28 +371,33 @@ int main(int argc, char** argv) {
 				            			cout <<"Tu producto es: \n";
 				            			cout << car[i].GetProduct()<<endl;
 				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cout << "Si desea salir precione 'c' y si no tiene ninguno agregado se acabara el programa" << endl;
 				            			cin >> opSoN;
 				            			if(opSoN=='s' or opSoN=='S'){
 				            				addId[addSum]=idCout;
 				            				cout << "Se agrego con exito \n";
 				            				addSum++;
 										}
+										if(opSoN=='c' or opSoN=='C'){
+											status=false;
+											statusGlobal=false;
+											statusTwo=false;
+											break;
+										}
 									}
 								}
 							}
 						}
-						cout << "Tus productos a moritoriar son: \n";
-						for(int i=0;i<3;i++){
-							cout << medicine[addId[i]].GetMedicine();
-						}
+						
 						status=false;
 						statusGlobal=false;
 					break;
 					case 2:
-						while(addSum<3){
+						while(addSum<3 and statusTwo){
 							string idCout;
-							cout << "Ingrese su id por favor: ";
+							cout << "Ingrese su nombre por favor: ";
 							cin >> idCout;
+							
 							if(fname=="toy"){
 				            
 				            }
@@ -385,11 +408,18 @@ int main(int argc, char** argv) {
 				            			cout <<"Tu producto es: \n";
 				            			cout << medicine[i].GetMedicine()<<endl;
 				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cout << "Si desea salir precione 'c' y si no tiene ninguno agregado se acabara el programa" << endl;
 				            			cin >> opSoN;
 				            			if(opSoN=='s' or opSoN=='S'){
 				            				addId[addSum]=i;
 				            				cout << "Se agrego con exito \n";
 				            				addSum++;
+										}
+										if(opSoN=='c' or opSoN=='C'){
+											status=false;
+											statusGlobal=false;
+											statusTwo=false;
+											break;
 										}
 									}
 								}
@@ -401,22 +431,28 @@ int main(int argc, char** argv) {
 				            			cout <<"Tu producto es: \n";
 				            			cout << car[i].GetProduct()<<endl;
 				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cout << "Si desea salir precione 'c' y si no tiene ninguno agregado se acabara el programa" << endl;
 				            			cin >> opSoN;
 				            			if(opSoN=='s' or opSoN=='S'){
 				            				addId[addSum]=i;
 				            				cout << "Se agrego con exito \n";
 				            				addSum++;
 										}
+										if(opSoN=='c' or opSoN=='C'){
+											status=false;
+											statusGlobal=false;
+											statusTwo=false;
+											break;
+										}
 									}
 								}
 							}
 						}
-						cout << "Tus productos a moritoriar son: \n";
-						for(int i=0;i<3;i++){
-							cout << medicine[addId[i]].GetMedicine();
-						}
 						status=false;
 						statusGlobal=false;
+					break;
+					default:
+						cout<<"Digite solo del 1 al 2 por favor\n";	
 					break;
 				}
 			}
@@ -450,5 +486,10 @@ int main(int argc, char** argv) {
             break;
         }
 	}
-	
+	cout << "Tus productos a moritoriar son: \n";
+	for(int i=0;i<addSum;i++){
+		cout << car[addId[i]].GetProduct();
+	}
 }
+
+
