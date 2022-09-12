@@ -182,7 +182,7 @@ int main(int argc, char** argv) {
 	
 	int addId[3];
 	int addSum=0;
-	//inicio para dar la opcion a escojer que base de datos le interesa 
+	//inicio para dar la opcion a seleccionar que base de datos le interesa 
 	while(true){
 		cout <<"Tenemos un listado:\n 1 Jugetes\n 2 Medicamento\n 3 Carros\n";
 		cout <<"Digite el numero de su listado favorito: \n";
@@ -395,7 +395,7 @@ int main(int argc, char** argv) {
 					case 2:
 						while(addSum<3 and statusTwo){
 							string idCout;
-							cout << "Ingrese su nombre por favor: ";
+							cout << "Ingrese el nombre por favor: ";
 							cin >> idCout;
 							
 							if(fname=="toy"){
@@ -433,6 +433,7 @@ int main(int argc, char** argv) {
 				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
 				            			cout << "Si desea salir precione 'c' y si no tiene ninguno agregado se acabara el programa" << endl;
 				            			cin >> opSoN;
+				            			
 				            			if(opSoN=='s' or opSoN=='S'){
 				            				addId[addSum]=i;
 				            				cout << "Se agrego con exito \n";
@@ -443,6 +444,9 @@ int main(int argc, char** argv) {
 											statusGlobal=false;
 											statusTwo=false;
 											break;
+										}
+										if(addSum==3){
+				            				break;
 										}
 									}
 								}
@@ -488,7 +492,7 @@ int main(int argc, char** argv) {
 	}
 	cout << "Tus productos a moritoriar son: \n";
 	for(int i=0;i<addSum;i++){
-		cout << car[addId[i]].GetProduct();
+		cout << car[addId[i]].GetProduct()<<endl;
 	}
 }
 
