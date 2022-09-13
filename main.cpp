@@ -59,7 +59,7 @@
 		void SetPrice(float newPrece){
 			price=newPrece;
 		}
-		int GetPrice(){
+		float GetPrice(){
 			return price;
 		}
 		int GetId(){
@@ -113,6 +113,9 @@
             "Price: $"+priceStr+"\n";
             return PriceProduct;
             } 
+        int GetPriceInt(){
+        	return price;
+		}
 };
 class Medicine{
     private:
@@ -160,6 +163,9 @@ class Medicine{
 		}
 		string GetName(){
 			return name;
+		}
+		int GetPriceInt(){
+        	return cost;
 		}
 };
  //fincion para cambiar de precio solo un 10% a su alsa o asu baja
@@ -490,9 +496,86 @@ int main(int argc, char** argv) {
             break;
         }
 	}
-	cout << "Tus productos a moritoriar son: \n";
-	for(int i=0;i<addSum;i++){
-		cout << car[addId[i]].GetProduct()<<endl;
+	//mostar los datos señalados 
+	if(addSum>0){
+		int iMori=0;
+		float priceInit[3];
+		cout << "Tus productos a moritoriar son: \n";
+		if(fname=="toy"){
+            for(int i=0;i<addSum;i++){
+				cout << articles[addId[i]].GetProduct()<<endl;
+			}
+        }
+        else if(fname=="medicine"){
+        	for(int i=0;i<addSum;i++){
+        		priceInit[i]=medicine[addId[i]].GetPriceInt();
+				cout << medicine[addId[i]].GetMedicine()<<endl;
+			}
+			while(iMori<3){
+				int iTime=0;
+				cout << "\nAnalizando sus productos ";
+				while(iTime<5){
+					Sleep(1000);
+		        	cout << ".";
+		        	iTime++;
+				}
+				for(int i=0;i<addSum;i++){
+	        		cout << "\nEl producto: ";
+					cout << medicine[addId[i]].GetName()<<endl;
+					cout << "El precio inicial es: "<<priceInit[i]<<endl;
+					float newPrice=changePrice(medicine[addId[i]].GetPriceInt());
+					medicine[addId[i]].Setcost(newPrice);
+					if(priceInit[i]>newPrice){
+						cout << "El precio a bajado, ahora es de: "<<newPrice<<endl;
+						cout <<"El precio inicial es: "<< priceInit[i]<<endl;
+						Sleep(1000);
+					}else{
+						cout << "El precio a subido, ahora es de: "<<newPrice<<endl;
+						cout <<"El precio inicial es: "<< priceInit[i]<<endl;
+						Sleep(1000);
+					}
+					Sleep(1000);
+				}
+				
+		        iMori++;
+			}
+        }
+        else if(fname=="car"){
+			for(int i=0;i<addSum;i++){
+        		priceInit[i]=car[addId[i]].GetPrice();
+				cout << car[addId[i]].GetProduct()<<endl;
+			}
+			while(iMori<3){
+				int iTime=0;
+				cout << "\nAnalizando sus productos ";
+				while(iTime<5){
+					Sleep(1000);
+		        	cout << ".";
+		        	iTime++;
+				}
+				for(int i=0;i<addSum;i++){
+	        		cout << "\nEl producto: ";
+					cout << car[addId[i]].GetProduct()<<endl;
+					cout << "El precio inicial es: "<<priceInit[i]<<endl;
+					float newPrice=changePrice(car[addId[i]].GetPrice());
+					car[addId[i]].SetPrice(newPrice);
+					if(priceInit[i]>newPrice){
+						cout << "El precio a bajado, ahora es de: "<<newPrice<<endl;
+						cout <<"El precio inicial es: "<< priceInit[i]<<endl;
+						Sleep(2000);
+					}else{
+						cout << "El precio a subido, ahora es de: "<<newPrice<<endl;
+						cout <<"El precio inicial es: "<< priceInit[i]<<endl;
+						Sleep(2000);
+					}
+					Sleep(1000);
+				}
+				
+		        iMori++;
+			}
+		}	
+	}else{
+		cout << "Reinicie el programa y seleccione uno o mas productos para su moritoreo \n";
 	}
 }
 
