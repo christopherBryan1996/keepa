@@ -113,9 +113,18 @@
             "Price: $"+priceStr+"\n";
             return PriceProduct;
             } 
-        int GetPriceInt(){
-        	return price;
+        float GetPriceFloat(){
+			return price;
 		}
+		
+
+        int GetId(){
+            return id;
+        }
+
+        string ToyName(){
+            return name;
+        }
 };
 class Medicine{
     private:
@@ -232,17 +241,19 @@ int main(int argc, char** argv) {
 	        string name, id, manufacturer, price;
 	        // Extraer todos los valores de esa fila
 	        getline(stream, name, lim);
-	        getline(stream, id, lim);
+	        
 	        getline(stream, manufacturer, lim);
 	        getline(stream, price, lim);
 	        std::istringstream(id)>>idStr;
             std::istringstream(price)>>priceStr;
 	        
 	        // Imprimir
-	        articles[it]=Art_toy(name,idStr,manufacturer,priceStr);
+	        
+	        articles[it]=Art_toy(name,it,manufacturer,priceStr);
             it++;
             Sleep(50);
 	        cout << ".";
+	        
 	    }
 	}
 	else if(fname=="medicine"){
@@ -344,7 +355,30 @@ int main(int argc, char** argv) {
 								break;
 							}
 							if(fname=="toy"){
-				            
+								for (int i = 0; i < 50; i++){
+                                    
+									if(articles[i].GetId()==idCout){
+                                        char opSoN;
+										
+				            			cout <<"Tu producto es: \n";
+				            			cout << articles[i].GetProduct()<<endl;
+				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cout << "Si desea salir precione 'c' y si no tiene ninguno agregado se acabara el programa" << endl;
+				            		    cin >> opSoN;
+
+				            			if(opSoN=='s' or opSoN=='S'){
+				            				addId[addSum]=i;
+				            				cout << "Se agrego con exito \n";
+				            				addSum++;
+										}
+										if(opSoN=='c' or opSoN=='C'){
+											status=false;
+											statusGlobal=false;
+											statusTwo=false;
+											break;
+										}
+                                    }
+                                }
 				            }
 				            else if(fname=="medicine"){
 				            	for(int i=0;i<50;i++){
@@ -405,7 +439,27 @@ int main(int argc, char** argv) {
 							cin >> idCout;
 							
 							if(fname=="toy"){
-				            
+								for(int i=0;i<50;i++){
+				            		if(articles[i].ToyName()==idCout){
+				            			char opSoN;
+				            			cout <<"Tu producto es: \n";
+				            			cout << articles[i].GetProduct()<<endl;
+				            			cout <<"Si es correcto coloque 's' y se agregara para su seguimiento, de lo contrario 'n' y ponga un nuevo id"<<endl;
+				            			cout << "Si desea salir precione 'c' y si no tiene ninguno agregado se acabara el programa" << endl;
+				            			cin >> opSoN;
+				            			if(opSoN=='s' or opSoN=='S'){
+				            				addId[addSum]=i;
+				            				cout << "Se agrego con exito \n";
+				            				addSum++;
+										}
+										if(opSoN=='c' or opSoN=='C'){
+											status=false;
+											statusGlobal=false;
+											statusTwo=false;
+											break;
+										}
+									}
+								}
 				            }
 				            else if(fname=="medicine"){
 				            	for(int i=0;i<50;i++){
@@ -502,9 +556,45 @@ int main(int argc, char** argv) {
 		float priceInit[3];
 		cout << "Tus productos a moritoriar son: \n";
 		if(fname=="toy"){
-            for(int i=0;i<addSum;i++){
-				cout << articles[addId[i]].GetProduct()<<endl;
+			for(int i=0;i<addSum;i++){
+        		priceInit[i]=articles[addId[i]].GetPriceFloat();
+				cout << articles[addId[i]].GetProduct()<<endl; 
 			}
+			while(iMori<3){
+				int iTime=0;
+				cout << "\nAnalizando sus productos ";
+				while(iTime<5){
+					Sleep(1000);
+		        	cout << ".";
+		        	iTime++;
+				}
+				for(int i=0;i<addSum;i++){
+	        		cout << "\nEl producto: ";
+	        		cout << articles[addId[i]].GetPriceFloat() << endl;
+	        		cout << "El precio inicial es: " << priceInit[i] << endl;
+	        		int desgracia=priceInit[i];
+	        		int porcentaje=desgracia*.10;
+	        		if(porcentaje==0){
+	        		 	porcentaje=1;
+					}
+				 	int max=desgracia+porcentaje;
+					int min=desgracia-porcentaje;
+					int desgraciados = min+rand() % (max-min);
+					articles[addId[i]].SetPrice(desgraciados);
+					if(priceInit[i]>desgraciados){
+						cout << "El precio a bajado, ahora es de: "<<desgraciados<<endl;
+						cout <<"El precio inicial es: "<< priceInit[i]<<endl;
+						Sleep(2000);
+					}else{
+						cout << "El precio a subido, ahora es de: "<<desgraciados<<endl;
+						cout <<"El precio inicial es: "<< priceInit[i]<<endl;
+						Sleep(2000);
+					}
+					Sleep(1000);
+				}
+				 iMori++;
+			}
+		
         }
         else if(fname=="medicine"){
         	for(int i=0;i<addSum;i++){

@@ -1,50 +1,51 @@
-product_name,manufacturer,price
-Large Christmas Holiday Express Festive Train Set (SI-TY1017) ,FunkyBuys, 16.99 
-CLASSIC TOY TRAIN SET TRACK CARRIAGES LIGHT ENGINE BOXED BOYS KIDS BATTERY,CCF, 9.99 
-HORNBY Coach R4410A BR Hawksworth Corridor 3rd,Hornby, 39.99 
-Hornby 00 Gauge 0-4-0 Gildenlow Salt Co. Steam Locomotive Model,Hornby, 32.19 
-20pcs Model Garden Light Double Heads Lamppost Scale 1:100,Generic, 6.99 
-Hornby 00 Gauge 230mm BR Bogie Passenger Brake Coach Model (Red),Hornby, 24.99 
-Hornby Santa's Express Train Set,Hornby, 69.93 
-Hornby Gauge Western Express Digital Train Set with eLink and TTS Loco Train Set,Hornby, 235.58 
-Learning Curve Chuggington Interactive Chatsworth,Chuggington, 64.76 
-Hornby Gauge Railroad Mosley Tarmacadam Locomotive,Hornby, 27.49 
-Kato (USA) 176-1308 F3B Denver & Rio Grande Western,Kato (USA), 273.60 
-Bachmann 37-662 14 Ton Tank Wagon Pease & Partners Red,Bachmann, 9.60 
-Hornby 00 Gauge 253mm Weathered Paviland Grange Steam Locomotive Train Model,Hornby, 119.50 
-Kato 3060-2 EF65 500 (F Model) Electric Locomotive,Kato, 35.87 
-Glacier Express of N gauge 10-1219 Alps [UNESCO paint color] 7 Car Set,Kato, 41.18 
-Power Trains Freight Industrial (Pack of 4),Power Trains, 101.51 
-Chuggington Interactive Wash and Fuel Set with Brewster Train Toy,Chuggington, 161.84 
-Kumoyuni 74-0 Shonan Color (Model Train),Kato, 17.08 
-Bachmann 31-588 Freightliner Class 70 005 Powerhaul Diesel Weathered,Bachmann, 96.05 
-Preiser 30495 Horse Drawn Wedding Coach (Closed),Preiser, 27.55 
-Preiser 30414 Horse Drawn Liquid Manure Wagon,Preiser, 24.50 
-Bachmann Class A2 60534 'Irish Elegance' BR Lined Green Early Emblem,Bachmann, 149.92 
-Plarail - S-29 Steam Locomotive Type C61-20 w/Head Light (Model Train),Takara Tomy, 12.87 
-Roco 64723 OBB Railjet Economy Coach V,Roco, 49.95 
-Learning Curve Chuggington Interactive Brewster,Chuggington, 62.91 
-Plarail - AS-07 Shinkansen Series 700 (Model Train),Takara Tomy, 14.44 
-Thomas and Friends Take-n-Play Molly,Fisher-Price, 39.46 
-Hornby R2981 London 2012 1948 Games 00 Gauge Limited Edition Train Pack,Hornby, 41.23 
-Gaugemaster HBYS Hornby Type Colour Light Signal for 12v DC,Gaugemaster, 5.95 
-Hornby R3246TTS LNER 2-8-2 'Cock O' The North' P2 Class with TTS Sound,Hornby, 139.95 
-Thomas and Friends Take-n-Play Elizabeth,Fisher-Price, 19.99 
-Faller 140322,Faller, 25.50 
-Topro LED Flashing Neon Sensory Maracas Light Up Maracas Toy,Topro, 50.07 
-Bachmann 32-882 Fairburn 2-6-4 Tank 42062 BR Lined Black Late Crest,Bachmann, 99.95 
-Alps Glacier Express (Add-On 4-Car Set) (Model Train),Kato, 49.33 
-Hornby Gloucester City Pullman Train Set,Hornby, 82.31 
-Dapol Model Railway Stanier 57ft Non-Corridor Coach - OO Gauge Plastic Kit,Dapol, 14.99 
-Faller 140428,Faller, 61.48 
-Hornby R3086 RailRoad LNER 4-6-2 'Flying Scotsman' Class A3 00 Gauge Steam Locomotive,Hornby, 69.99 
-Ratio 271 Pratt Truss Signal Gantry Kit to span two tracks,Ratio, 3.40 
-Ohigawa Railway SL [Kawane-ji] (4-Car Set) (Model Train),Kato, 50.81 
-HIGH SPEED TRAIN BUMP AND GO WITH MUSIC AND LIGHT HIGH QUALITY TOY,ARSUK, 4.99 
-"TRIX T23469 H0 Luggage wagon of K.BAY.STS.instance, Luggage van",Trix, 36.51 
-Dapol Stanier 57ft Non Corridor Brake Coach - OO Gauge Plastic Kit,Dapol, 14.99 
-S-60 EF66 Electric Locomotive (Tomica PlaRail Model Train) (japan import),Takara Tomy, 11.58 
-Power Trains Freight Military (Pack of 4),Power Trains, 14.24 
-Hornby R1138 GWR Passenger Freight 00 Gauge Electric Train Set,Hornby, 79.95 
-WD Austerity 2-8-0 90448 BR Black Late Crest (DCC,RAILWAY - BACHMANN, 135.00 
-Power Trains 2 Pack - Graffiti Freight,Power Trains, 8.99 
+product_name,manufacturer,price,,
+Christmas_Express,FunkyBuys,16.99,,
+Train_Set,CCF,9.99,,
+Hornby_Coach,Hornby,39.99,,
+Hornby_Gauge,Hornby,32.19,,
+Light_Double,Generic,6.99,,
+Hornby_Gauge,Hornby,24.99,,
+Hornby_Santa's,Hornby,69.93,,
+Hornby_Gauge,Hornby,235.58,,
+Learning_Curve,Chuggington,64.76,,
+Hornby_Gauge,Hornby,27.49,,
+Kato_(USA),Kato (USA),273.6,,
+Bachmann_37-662,Bachmann,9.6,,
+Hornby_Gauge,Hornby,119.5,,
+Kato_3060-2,Kato,35.87,,
+Glacier_Express,Kato,41.18,,
+Power_Trains,Power Trains,101.51,,
+Chuggington_Brewster,Chuggington,161.84,,
+Kumoyuni_74-0,Kato,17.08,,
+Bachmann_31-588,Bachmann,96.05,,
+Preiser_30495,Preiser,27.55,,
+Preiser_30414,Preiser,24.5,,
+Bachmann_Class,Bachmann,149.92,,
+Plarail_S-29,Takara Tomy,12.87,,
+Roco_64723,Roco,49.95,,
+Chuggington_Interactive,Chuggington,62.91,,
+Plarail_AS-07,Takara Tomy,14.44,,
+Thomas_and,Fisher-Price,39.46,,
+Hornby_R2981,Hornby,41.23,,
+Gaugemaster_HBYS,Gaugemaster,5.95,,
+Hornby_R3246TTS,Hornby,139.95,,
+Thomas_Take-n-Play,Fisher-Price,19.99,,
+Faller_140322,Faller,25.5,,
+Bachmann_31-688,Topro,50.07,,
+Bachmann_32-882,Bachmann,99.95,,
+Alps_Glacier,Kato,49.33,,
+Hornby_Gloucester,Hornby,82.31,,
+Dapol_Railway,Dapol,14.99,,
+Faller_140428,Faller,61.48,,
+Hornby_R3086,Hornby,69.99,,
+Ratio_271,Ratio,3.4,,
+Ohigawa_Railway,Kato,50.81,,
+High_Speed,ARSUK,4.99,,
+TRIX_T23469,Trix,36.51,,
+Dapol_Stanier,Dapol,14.99,,
+S-60_EF66,Takara Tomy,11.58,,
+Power_Trains,Power Trains,14.24,,
+Hornby_R1138,Hornby,79.95,,
+WD_Austerity,RAILWAY - BACHMANN,135,,
+Power_Trains,Power Trains,8.99,,
+Trenecito_MF,Bull Train Inc.,49.15,,
