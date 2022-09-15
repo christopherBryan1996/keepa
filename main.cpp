@@ -458,6 +458,9 @@ int main(int argc, char** argv) {
 											statusTwo=false;
 											break;
 										}
+										if(addSum==3){
+				            				break;
+										}
 									}
 								}
 				            }
