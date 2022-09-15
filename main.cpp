@@ -318,7 +318,7 @@ int main(int argc, char** argv) {
         cout<<"\nConoce nuestros productos o desea ver una lista?"<<endl;
         cout<<"[1] Conozco los productos"<<endl;
         cout<<"[2] Deseo ver las listas"<<endl;
-        cout<<"Selección: ";
+        cout<<"Selecciï¿½n: ";
         cin>>op2;
             if(cin.fail()){
 			cout <<"Solo numeros enteros, reinicie el programa \n";
@@ -332,9 +332,9 @@ int main(int argc, char** argv) {
             	int op3;
             	bool statusTwo=true;
 	            cout<<"Como desea realizar su busqueda?"<<endl;
-	            cout<<"[1] Búsqueda por ID"<<endl;
-	            cout<<"[2] Búsqueda por nombre"<<endl;
-	            cout<<"Selección: ";
+	            cout<<"[1] Bï¿½squeda por ID"<<endl;
+	            cout<<"[2] Bï¿½squeda por nombre"<<endl;
+	            cout<<"Selecciï¿½n: ";
 	            cin>>op3;
 				
 	            if(cin.fail()){
@@ -528,21 +528,33 @@ int main(int argc, char** argv) {
             if(fname=="toy"){
             for (int i = 0; i < 50; i++)
             {
-                cout<<"["<<i+1<<"]\n"<<articles[i].GetProduct()<<endl;
-                cout<<"Para el siguiente articulo"<<endl;
-                op4 = cin.get();
-               
-            }
+					cout<<"["<<i<<"]\n"<<articles[i].GetProduct()<<endl;
+					cout<<articles[i].GetPrice()<<endl;
+					cout<<"Presiona [ENTER] para el siguiente articulo\n"<<endl;
+					
+					op4 = cin.get();
+				}
             
             }
             else if(fname=="medicine"){
-
+				for (int i = 0; i < 50; i++)
+				{
+					cout<<"["<<i<<"]\n"<<medicine[i].GetMedicine()<<endl;
+					cout<<medicine[i].Getcost()<<endl;
+					cout<<"Presiona [ENTER] para el siguiente articulo\n"<<endl;
+					
+					op4 = cin.get();
+				}	
             }
             else if(fname=="car"){
+				for (int i = 0; i < 48; i++)
+				{
+					cout<<"["<<i<<"]\n"<<car[i].GetProduct()<<endl;
+					cout<<car[i].GetPrice()<<endl;
+					cout<<"Presiona [ENTER] para el siguiente articulo\n"<<endl;
 
-            }
-            else{
-
+					op4 = cin.get();
+				}
             }
             break;
         default:
@@ -550,7 +562,7 @@ int main(int argc, char** argv) {
             break;
         }
 	}
-	//mostar los datos señalados 
+	//mostar los datos seï¿½alados 
 	if(addSum>0){
 		int iMori=0;
 		float priceInit[3];
