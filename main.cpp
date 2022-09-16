@@ -318,7 +318,7 @@ int main(int argc, char** argv) {
         cout<<"\nConoce nuestros productos o desea ver una lista?"<<endl;
         cout<<"[1] Conozco los productos"<<endl;
         cout<<"[2] Deseo ver las listas"<<endl;
-        cout<<"Selecci�n: ";
+        cout<<"Seleccion: ";
         cin>>op2;
             if(cin.fail()){
 			cout <<"Solo numeros enteros, reinicie el programa \n";
@@ -332,9 +332,9 @@ int main(int argc, char** argv) {
             	int op3;
             	bool statusTwo=true;
 	            cout<<"Como desea realizar su busqueda?"<<endl;
-	            cout<<"[1] B�squeda por ID"<<endl;
-	            cout<<"[2] B�squeda por nombre"<<endl;
-	            cout<<"Selecci�n: ";
+	            cout<<"[1] Busqueda por ID"<<endl;
+	            cout<<"[2] Busqueda por nombre"<<endl;
+	            cout<<"Seleccion: ";
 	            cin>>op3;
 				
 	            if(cin.fail()){
@@ -584,8 +584,8 @@ int main(int argc, char** argv) {
 		        	iTime++;
 				}
 				for(int i=0;i<addSum;i++){
-	        		cout << "\nEl producto: ";
-	        		cout << articles[addId[i]].GetPriceFloat() << endl;
+	        		cout << "\nEl producto: \n";
+	        		cout << articles[addId[i]].GetProduct() << endl;
 	        		cout << "El precio inicial es: " << priceInit[i] << endl;
 	        		int desgracia=priceInit[i];
 	        		int porcentaje=desgracia*.10;
